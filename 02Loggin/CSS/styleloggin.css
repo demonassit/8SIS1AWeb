@@ -1,0 +1,102 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-image: url(../images/fondo.jpg);
+    background-size: cover;
+    color: rgb(41, 238, 179);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    align-content: center;
+}
+
+.userlogin{
+    background-color: #ffffff;
+    width: 600px;
+    height: 50px;
+    border-radius: 15px solid rgb(156, 243, 16);
+    margin-top: 10%;
+    text-align-last: center;
+    
+}
+
+.title{
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+    font-size: 15px;
+    padding-top: 10px;
+    color:rgb(224, 116, 243);
+}
+
+.userid{
+    padding-top: 20px;
+}
+
+.userid h2{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    float: left;
+    margin-left: 50px;
+    margin-right: 5px;
+    padding-left: 5px;
+}
+
+.userid input{
+    height: 25px;
+    width: 300px;
+    border: solid 2px #09c022;
+    border-radius: 10px;
+}
+
+.password{
+    padding-top: 20px;
+}
+
+.password h2{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    float: left;
+    margin-left: 50px;
+    margin-right: 5px;
+    padding-left: 5px;
+}
+
+.password input{
+    height: 25px;
+    width: 300px;
+    border: solid 2px #09c022;
+    border-radius: 10px;
+    margin-left: 100px;
+}
+
+.button{
+    margin-top: 20px;
+    display: inline-block;
+}
+
+.button button{
+    border-radius: 15px;
+    width: 120px;
+    height: 35px;
+}
+
+.button img{
+    float:left;
+}
+
+.button p{
+    margin-top: 8px;
+    text-align: center;
+    text-transform: uppercase;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+a{
+    margin-top: 20px;
+    float: left;
+    margin-left: 60px;
+    color:rgb(24, 246, 91);
+}
