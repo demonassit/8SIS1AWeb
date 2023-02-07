@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios JS</title>
+    <link rel="stylesheet" href="css/styleejerciciosjs.css">
+</head>
+<body>
+    <br>
+    <div class="container" >
+        <form method="get" name="formulario" action="">
+            <label> Formulario para el calculo de inversion de 
+                capital al 2% mensual </label>
+                <div class="table-content" >
+                    <table>
+                        <tr>
+                            <td>Introduce la cantidad que deseas invertir</td>
+                            <td>
+                                <input type="text" name="cantidad" 
+                                onkeypress="return validarn(event)">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <input type="button" value="Calcular Interes"
+                                name="enviar" onclick="interes()" >
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Su saldo total con el interes al 2% 
+                                mensual es de:</td>
+                                <td>
+                                    <input type="text" readonly="readonly"
+                                    class="input_text" name="sueldoI" id="cantidadI" >
+                                </td>
+
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <input type="button" value="Borrar Datos"
+                                name="borrar" onclick="borrardatos()">
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+        </form>
+    </div>
+    <script src="JS/interes.js" ></script>
+</body>
+</html>
