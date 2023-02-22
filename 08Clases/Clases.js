@@ -108,3 +108,48 @@ const[valorMasGrande1, valorMasGrande2, valorMasGrande3, ...restoValores] = arre
 console.log(`valorMasGrande1, valorMasGrande2, valorMasGrande3, ...restoValores: ${valorMasGrande1}, ${valorMasGrande2}, ${valorMasGrande3},${restoValores}`);
 
 //destructuracion
+
+
+//vamos a realizar una busqueda y queremos simplificarla
+
+const resultadoDBusqueda = {
+    resultados: [
+        "resultado 1",
+        "resultado 2",
+        "resultado 3",
+        "resultado 4",
+        "resultado 5",
+        "resultado 6",
+        "resultado 7"
+    ], 
+    total : 7,
+    mejorCoincidencia : "resultado 3"
+};
+
+console.log(`Resultados de la Busqueda: ${resultadoDBusqueda}`);
+
+//vamos a suponer que solo nos interesa imprimir la mejor coincidencia
+
+const {mejorCoincidencia} = resultadoDBusqueda;
+
+console.log(`mejor coincidencia: ${mejorCoincidencia}`);
+
+//supongamos que queremos cambiar el nombre, derivado a que necesitamos mantener la consistencia del codigo acorde a las nomenclaturas
+
+const {mejorCoincidencia: nuevoNombre} = resultadoDBusqueda;
+
+console.log(`Este es mi nuevo nombre: ${nuevoNombre}`);
+
+
+//vamos agregar informacion
+
+const copiadelResultadoDeBusqueda = {...resultadoDBusqueda};
+
+console.log(`copia del resultado de busqueda: ${copiadelResultadoDeBusqueda}`);
+
+//modificamos 
+
+const copiadelResultadoDeBusquedaModificar = {...resultadoDBusqueda, cadenaBuscada : "resultado 3"};
+
+console.log(`copia del resultado de busqueda modificada: ${copiadelResultadoDeBusquedaModificar}`);
+
