@@ -75,4 +75,90 @@ const pokedex = () =>{
         container.pokemonTypesContainer.innerHTML = pokemonType;
     }
 
+    //para las estadisticas del pokemon 
+
+    const processPokemonStats = (pokemonData) => {
+        //ocuparemos el operador ? para un encadenamiento opcional, 
+        pokemonData.stats?.forEach((pokemonStatData)=>{
+            //tengo que evaluar las estadisticas acorde al contenedor del tipo de pokemon si es que existe
+            switch(pokemonStatData.stat.name){
+                case "hp":
+                    pokemonStatElements.hp.innerHTML = pokemonStatData.base_stat;
+                    pokemonStatElements.hp.style = `background: linear-gradient(0deg, rgba(0,118,255,1) ${pokemonStatData.base_stat}%, rgba(0,0,0,1) ${pokemonStatData.base_stat}%)`;
+                    break;
+                case "attack":
+                    pokemonStatElements.attack.innerHTML = pokemonStatData.base_stat;
+                    pokemonStatElements.attack.style = `background: linear-gradient(0deg, rgba(0,118,255,1) ${pokemonStatData.base_stat}%, rgba(0,0,0,1) ${pokemonStatData.base_stat}%)`;
+                    break;
+                case "defense":
+                    pokemonStatElements.defense.innerHTML = pokemonStatData.base_stat;
+                    pokemonStatElements.defense.style = `background: linear-gradient(0deg, rgba(0,118,255,1) ${pokemonStatData.base_stat}%, rgba(0,0,0,1) ${pokemonStatData.base_stat}%)`;
+                    break;
+                case "special-attack":
+                    pokemonStatElements.specialAttack.innerHTML = pokemonStatData.base_stat;
+                    pokemonStatElements.specialAttack.style = `background: linear-gradient(0deg, rgba(0,118,255,1) ${pokemonStatData.base_stat}%, rgba(0,0,0,1) ${pokemonStatData.base_stat}%)`;
+                    break;
+                case "special-defense":
+                    pokemonStatElements.specialDefense.innerHTML = pokemonStatData.base_stat;
+                    pokemonStatElements.specialDefense.style = `background: linear-gradient(0deg, rgba(0,118,255,1) ${pokemonStatData.base_stat}%, rgba(0,0,0,1) ${pokemonStatData.base_stat}%)`;
+                    break;
+                case "speed":
+                    pokemonStatElements.speed.innerHTML = pokemonStatData.base_stat;
+                    pokemonStatElements.speed.style = `background: linear-gradient(0deg, rgba(0,118,255,1) ${pokemonStatData.base_stat}%, rgba(0,0,0,1) ${pokemonStatData.base_stat}%)`;
+                    break;
+
+            }
+        });
+    };
+
+    //procesar los movimientos del pokemon en su respectivo contenedor
+
+    const processPokemonMoves = (pokemonData) =>{
+        let pokemonMovesContent = "";
+
+        pokemonData.moves?.forEach((pokemonMove) => {
+            //voy a ir agregando los movientos en formato de lista en su contenedor
+            pokemonMovesContent += `<li>${pokemonMove.move.name}</li>`;
+
+        });
+        //lo imprimo en el html la lista
+        container.pokemonMovesElement.innerHTML = pokemonMovesContent;
+    }
+
+    const processPokemonAbilities = (pokemonData) =>{
+        let pokemonAbilitiesContent = "";
+
+        pokemonData.abilities?.forEach((pokemonAbility) => {
+            //voy a ir agregando los movientos en formato de lista en su contenedor
+            pokemonAbilitiesContent += `<li>${pokemonAbility.ability.name}</li>`;
+
+        });
+        //lo imprimo en el html la lista
+        container.pokemonAbilitiesElement.innerHTML = pokemonAbilitiesContent;
+    }
+
+    //vamos a poner la imagen cargando y deshabilitar los botones porque esta buscando al pokemon y no queremos que se envie otra solicitud mientras exista la busqueda
+
+    const setLoading = () => {
+        container.imageContainer.innerHTML = imageTemplate.replace("{imgSrc}", images.imgLoading);
+        //desahabilito los botones
+        buttons.all.forEach(button => button.disable = true);
+    }
+
+    //volver habilitarlos
+    const setLoadingComplete = () => {
+        buttons.all.forEach(button => checkDisabled(button));
+    }
+
+    //async   await
+
+    /*
+    Vamos a utilizar una funcion fecth la cual realizara la consulta correspondiente en la API solicitando los elementos de los contenedores acorde al tipo de peticion (nombre, stats, movimientos, habilidades, etc, obteniendo los recursos por medio de la url, o de forma local , cuyo objeto ayuda a establecer los parametros de la promesa.
+        una promesa nos devuelve un then y un catch de acuerdo a un objeto json para su interpretacion)
+    */ 
+
+    const getPokemonData = async (pokemonName) => fetch(`${pokeApiUrl}pokemon/${pokemonName}`, {
+        
+    })
+
 }
