@@ -158,7 +158,84 @@ const pokedex = () =>{
     */ 
 
     const getPokemonData = async (pokemonName) => fetch(`${pokeApiUrl}pokemon/${pokemonName}`, {
-        
-    })
+        //debemos de hacerlo por medio de un metodo
+        method : 'GET', 
+        //del tipo de cabecera que debe de ejecutar dicha peticion
+        headers : {
+            //formato json o xml
+            'Content-Type' : 'application/json'
+        },
+        /*
+        cuando la peticion se devuelve al body se utiliza:
+        body : JSON.stringify(miObjetoJson)
 
-}
+        Esto sirve cuando la peticion es de tipo post o put y se debe de convertir a una cadena
+        */
+    }).then((res) => res.json()).catch((error) => ({requestFailed:true}));
+
+    //funcion para desahabilitar los botones 
+
+    const checkDisabled = (button) =>{
+        button.disable = button.id === "btnDown" && container.pokemonIdElement.value <= 1;
+    }
+
+    //una funcion para validar que se reciba el nombre o id y se realice la buqeuda del pokemon y procese una respuesta al mismo tiempo
+
+    const setPokemonData = async (pokemonName) => {
+        //primero ya que obtenemos el nombre del pokemon debemos de validar y obtener todos los elemenntos
+        if(pokemonName){
+            //obtener la imagen
+            setLoading();
+            //realizar la consulta pero para ello debeo de primero esperar hasta obtener una respuesta para ello utilizaremos await
+            const pokemonData = await getPokemonData(typeof pokemonName === typeof "" ? pokemonName.toLowerCase() : pokemonName);
+            if(pokemonData.requestFailed){
+
+                //no hay pokemon
+                container.imageContainer.innerHTML = imageTemplate.replace("{imgSrc}", images.imgPokemonNotFound);
+            }else{
+                // si encuentra al pokemon y debo de obtener la imagen, los datos, estadisticas, movimienots y hbailidades
+                container.imageContainer.innerHTML = `${imageTemplate.replace("imgSrc", pokemonData.sprites.front_defaul)} ${imageTemplate.replace("{imgSrc}", pokemonData.sprites.front_shiny)}`;
+
+                //nombre
+                container.pokemonNameElement.innerHTML = pokemonData.name;
+
+                //id
+                container.pokemonIdElement.value = pokemonData.id;
+
+                //el resto de los datos
+                processPokemonTypes(pokemonData);
+                processPokemonStats(pokemonData);
+                processPokemonAbilities(pokemonData);
+                processPokemonMoves(pokemonData);
+            }
+        }else{
+            //la alerta
+            Swal.fire({
+                title: "Error nwn",
+                text: "Ingresa el nombre de un pokemon primero",
+                icon: "error",
+                confirmButtonText: "Aceptar"
+            });
+        } 
+    };
+
+    const triggers = () => {
+        //se le vincula la funcion de busqueda al boton
+        buttons.search.onclick = () => setPokemonData(pokemonInput.value);
+        //se vincula la funcion de busqueda al campo de texto
+        pokemonInput.onkeyup = (event)=>{
+            event.preventDefault();
+            if(event.key == "Enter"){
+                setPokemonData(pokemonInput.value);
+            }
+        }
+        //se vincula la funcion de arriba y abajo
+        buttons.next.onclick = () => setPokemonData(+container.pokemonIdElement.value+1);
+        buttons.previous.onclick = () => setPokemonData(+container.pokemonIdElement.value-1);
+    };
+    setLoadingComplete();
+    triggers();
+ 
+};
+
+window.onload = pokedex; 
