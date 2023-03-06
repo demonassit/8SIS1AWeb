@@ -1,0 +1,179 @@
+/*Código armado por La Foca Loca S.A. No modificar*/
+
+body {
+    font-family: Arial, sans-serif;
+    width: 940px;
+    margin: 2% auto;
+    min-height: 100%;
+    background-image: url(../images/adventure.jpg);
+    box-sizing: border-box;
+}
+
+ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+li {
+    padding: 5px 0;
+    animation: fadein 5s;
+}
+
+li::before {
+    content: "• ";
+    color: #EC6778;
+}
+
+.col-40 h1 {
+    margin: 0% auto;
+    text-align: center;
+    font-size: 27px;
+    color: #E84A5F;
+}
+
+.col-40,
+.col-60 {
+    display: table-cell;
+    margin: 0;
+    vertical-align: top;
+}
+
+.col-40 {
+    width: 40%;
+    max-width: 376px;
+    /* background: #FFF; */
+    padding: 30px;
+    color: #000;
+}
+
+.col-60 {
+    width: 60%;
+    max-width: 564px;
+    /* background: #E84A5F; */
+}
+
+#flecha {
+    font-size: 40px;
+}
+
+.texto-centrado {
+    text-align: center;
+}
+
+#juego div {
+    text-align: center;
+    animation: fadein 2s;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* este es el tablero de juego */
+
+#juego {
+    background-image: -webkit-linear-gradient(top, #eb94d0, #2079b0);
+    background-image: -moz-linear-gradient(top, #eb94d0, #2079b0);
+    background-image: -ms-linear-gradient(top, #eb94d0, #2079b0);
+    background-image: -o-linear-gradient(top, #eb94d0, #2079b0);
+    background-image: linear-gradient(to bottom, #eb94d0, #2079b0);
+    /* background-color: blue; */
+    width: 600px;
+    height: 600px;
+    box-sizing: border-box;
+}
+
+.piezas {
+    width: 33.33%;
+    height: 33.33%;
+    float: left;
+}
+
+.piezas img {
+    width: 100%;
+    height: 100%;
+    border: 0.30px solid rgb(97, 204, 209);
+}
+
+
+/*  títulos, las instrucciones y el footer.*/
+
+#instrucciones h2 {
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #000;
+}
+
+#objetivo h2 {
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #000;
+}
+
+#objetivo img {
+    margin: 0% auto;
+    width: 75%;
+}
+
+#ultimo-mov h2 {
+    text-align: center;
+    font-size: 16px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #000;
+}
+
+#footer p {
+    font-size: 15px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #000;
+}
+
+#iniciarButton {
+    background-image: -webkit-linear-gradient(top, #eb94d0, #2079b0);
+    background-image: -moz-linear-gradient(top, #eb94d0, #2079b0);
+    background-image: -ms-linear-gradient(top, #eb94d0, #2079b0);
+    background-image: -o-linear-gradient(top, #eb94d0, #2079b0);
+    background-image: linear-gradient(to bottom, #eb94d0, #2079b0);
+    cursor: pointer;
+    font-style: italic;
+    font-weight: bold;
+    /* border: 1px solid black; */
+    /* border-radius: 8px; */
+    margin: 2px auto;
+    width: 50%;
+    font-size: 12px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-align: center;
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    text-shadow: 3px 2px 1px #9daef5;
+    -webkit-box-shadow: 6px 5px 24px #666666;
+    -moz-box-shadow: 6px 5px 24px #666666;
+    box-shadow: 6px 5px 24px #666666;
+    font-family: Arial;
+    color: #fafafa;
+    font-size: 15px;
+    padding: 15px;
+    text-decoration: none;
+}
+
+#iniciarButton:hover {
+    /* background-image: #f3e6ec; */
+    background: #2079b0;
+    background-image: -webkit-linear-gradient(top, #2079b0, #eb94d0);
+    background-image: -moz-linear-gradient(top, #2079b0, #eb94d0);
+    background-image: -ms-linear-gradient(top, #2079b0, #eb94d0);
+    background-image: -o-linear-gradient(top, #2079b0, #eb94d0);
+    background-image: linear-gradient(to bottom, #2079b0, #eb94d0);
+    text-decoration: none;
+}
