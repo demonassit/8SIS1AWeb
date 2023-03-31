@@ -1,0 +1,15 @@
+{
+  "name": "servidornode",
+  "version": "1.0.0",
+  "description": "Ejemplo de manejo de require",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Demonassit",
+  "license": "ISC",
+  "dependencies": {
+    "alertifyjs": "^1.13.1",
+    "colors": "^1.4.0"
+  }
+}
